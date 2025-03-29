@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudar CSS com Clique</title>
+    <style>
+        .normal {
+            background-color: lightblue;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        .alterado {
+            background-color: lightcoral;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="meuElemento" class="normal">Clique no botão para mudar meu estilo!</div>
+    <button onclick="mudarEstilo()">Mudar Estilo</button>
+
+    <script>
+        function mudarEstilo() {
+            var elemento = document.getElementById('meuElemento');
+            if (elemento.classList.contains('normal')) {
+                elemento.classList.remove('normal');
+                elemento.classList.add('alterado');
+            } else {
+                elemento.classList.remove('alterado');
+                elemento.classList.add('normal');
+            }
+        }
+    </script>
+</body>
+</html>

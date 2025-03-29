@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/JavaScript.js">
+    <title>Trocar texto</title>
+</head>
+<body>
+    <h1 id="texto">Hello World</h1>
+    <button onclick="MudarTexto()">Clique aqui para mudar o texto</button>
+    <script>
+
+        let textos = ['Olá', 'Bem Vindo', 'Bom Dia', 'Boa Noite'];
+        let number =0;
+        let text = document.getElementById('texto') 
+
+        function MudarTexto () {
+            if (number +1 == textos.length){
+                number = 0;
+            }
+            else{
+                number = number + 1;
+            }
+            text.textContent = textos[number]
+        }
+
+
+    </script>
+</body>
+</html>

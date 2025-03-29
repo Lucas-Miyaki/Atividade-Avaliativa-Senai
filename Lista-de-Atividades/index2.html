@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    <input type="text" id="item" placeholder="Insira um item" />
+<button onClick="adicionar()">Adicionar</button>
+<button onClick="remover()">Remover</button>
+
+<div>
+  <ul id="lista"></ul>
+</div>
+
+<script>
+
+    let itens = [];
+
+for (let i = 0; i < itens.length; i++) {
+  let lis = document.createElement('li');
+  lis.innerHTML = itens[i];
+  lista.appendChild(lis);
+}
+
+//função para adicionar mais um nome à lista
+function adicionar() {
+  const coleta = document.getElementById("item").value;
+  const item = document.createElement('li');
+
+  itens.push(coleta);
+  item.innerHTML = coleta;
+  lista.appendChild(item);
+}
+
+function remover() {
+    const item = document.remove;
+    lista.removeChild(lista.lastChild);
+}
+
+
+</script>
+
+</body>
+</html>

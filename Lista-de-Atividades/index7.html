@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    html, body{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+    }
+</style>
+</head>
+<body>
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" placeholder="Ex: Lucas" required>
+    <label for="idade">Idade</label>
+    <input id="idade" type="number" placeholder="Ex; 15" required>
+    <label for="email">Email</label>
+    <input id="email" type="text" placeholder="Ex; exemplo@algo.com" required>
+    <label for="mensagem">Mensagem</label>
+    <textarea name="" id="mensagem" placeholder="Ex: Hello World" required></textarea>
+    <button id="enviar">Enviar</button>
+    <div id="texto"></div>
+</body>
+</html>
+<script>
+    const Enviar = document.getElementById('enviar')
+
+    Enviar.addEventListener('click', () =>{
+        const Nome = document.getElementById('nome').value;
+        const Idade = parseFloat(document.getElementById('idade').value);
+        const Email = document.getElementById('email').value;
+        const Mensagem = document.getElementById('mensagem').value;
+        let Texto = document.getElementById('texto');
+        if (Nome !== '' && Email !== '' && Mensagem !== '' && !isNaN(Idade)){
+            Texto.textContent = "Formulário concluido com sucesso";
+        }
+        else{
+            Texto.textContent = "Preencha todos os campos";
+        }
+    })
+</script>

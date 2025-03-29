@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo</title>
+
+</head>
+<body>
+    <button onclick="recolherData()">Clique para ver a data e a hora</button>
+    <div id="horario"></div>
+</body>
+</html>
+
+<Script>
+    function recolherData() {
+        const nesteMomento = new Date(); 
+        const bemAgora = nesteMomento.toLocaleString("pt-br");
+        document.getElementById('horario').textContent = "Tempo : " + bemAgora;
+    }
+</Script>

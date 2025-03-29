@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregamento</title>
+<style>
+    *{
+        background-color: aquamarine;
+    }
+.progress{
+    height: 15px;
+    border-radius: 30px;
+    background-color: #777;
+    position: relative;
+    max-width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress .progress-bar{
+   position: absolute;
+   height: 100%;
+   background-color: #add555;
+   animation: progress-animation 6s;
+   border-radius: 30px;
+}
+
+
+@keyframes progress-animation{
+    0% { width: 0%; }
+    
+    100% { width: 100%}
+    
+}
+
+.org{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    background-color: #777;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 430px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="org"></div>
+        <div class="progress" id="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <button onclick="carregar()"></button>
+    </div>
+</body>
+</html>
+
+<script>
+    function carregar() {
+  var elem = document.getElementById("progressBar");   
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
+    }
+</script>

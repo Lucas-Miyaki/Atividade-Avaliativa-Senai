@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleatório</title>
+</head>
+<body>
+    <ul id="conjunto">
+        <li>Objeto-1</li>
+        <li>Objeto-2</li>
+        <li>Objeto-3</li>
+        <li>Objeto-4</li>
+        <li>Objeto-5</li>
+    </ul>
+    <button id="aleatorio">Clique para mudar</button>
+</body>
+</html>
+<script>
+    const Aleatorio = document.getElementById('aleatorio')
+
+    Aleatorio.addEventListener('click', () =>{
+        const Conjunto = document.getElementById('conjunto');
+        const Objetos = Array.from(Conjunto.children);
+
+        Objetos.sort(() => Math.random() - 0.5);
+
+        Conjunto.innerHTML = '';
+        Objetos.forEach(Objeto => Conjunto.appendChild(Objeto));
+    })
+</script>

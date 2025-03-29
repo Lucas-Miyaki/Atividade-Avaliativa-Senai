@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão Adicionar/Remover</title>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleButton">Adicionar</button>
+  <div id="texto"></div>
+
+  <script>
+    const button = document.getElementById('toggleButton');
+
+    button.addEventListener('click', () => {
+      // Alterna o texto do botão entre "Adicionar" e "Remover"
+      button.textContent = button.textContent === 'Adicionar' ? 'Remover' : 'Adicionar';
+      if (button.textContent == 'Remover'){
+        const divTexto = document.getElementById('texto')
+        divTexto.innerHTML = 'Este é o texto adicionado!';
+      }
+      else{
+        const divTexto = document.getElementById('texto')
+        divTexto.innerHTML = '';
+      }
+    });
+  </script>
+</body>
+</html>
