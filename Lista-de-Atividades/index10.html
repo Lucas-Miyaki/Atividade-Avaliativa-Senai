@@ -1,83 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carregamento</title>
-<style>
-    *{
-        background-color: aquamarine;
+  <meta charset="UTF-8">
+  <title>Animação da Barra de Carregamento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
     }
-.progress{
-    height: 15px;
-    border-radius: 30px;
-    background-color: #777;
-    position: relative;
-    max-width: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.progress .progress-bar{
-   position: absolute;
-   height: 100%;
-   background-color: #add555;
-   animation: progress-animation 6s;
-   border-radius: 30px;
-}
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
 
+    #container {
+      width: 80%;
+      max-width: 500px;
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 15px;
+      overflow: hidden;
+      display: none;
+      position: relative;
+    }
 
-@keyframes progress-animation{
-    0% { width: 0%; }
-    
-    100% { width: 100%}
-    
-}
+    #barra {
+      width: 0;
+      height: 100%;
+      background-color: #4CAF50;
+      border-radius: 15px;
+      transition: width 2s ease-in-out;
+    }
 
-.org{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 30px;
-
-}
-
-button{
-    width: 100px;
-    height: 50px;
-    background-color: #777;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 430px;
-}
-
-    </style>
+    #mensagem {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="org"></div>
-        <div class="progress" id="progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <button onclick="carregar()"></button>
-    </div>
+  <button onclick="iniciarAnimacao()">Iniciar Carregamento</button>
+  <div id="container">
+    <div id="barra"></div>
+  </div>
+  <div id="mensagem">Carregamento concluído!</div>
+
+  <script>
+    function iniciarAnimacao() {
+      const container = document.getElementById('container');
+      const barra = document.getElementById('barra');
+      const mensagem = document.getElementById('mensagem');
+
+      // Exibe a barra de carregamento
+      container.style.display = 'block';
+      mensagem.style.display = 'none'; // Esconde a mensagem
+      barra.style.width = '0'; // Reseta a largura para reiniciar a animação
+      
+      // Inicia a animação
+      setTimeout(() => {
+        barra.style.width = '100%'; // Aumenta a largura para 100% (com animação CSS)
+      }, 100);
+
+      // Mostra a mensagem após a conclusão (tempo igual à animação)
+      setTimeout(() => {
+        container.style.display = 'none'; // Oculta o container após a animação
+        mensagem.style.display = 'block'; // Mostra a mensagem "Carregamento concluído"
+      }, 2000); // Tempo deve coincidir com a duração do `transition` no CSS (2s)
+    }
+  </script>
 </body>
 </html>
-
-<script>
-    function carregar() {
-  var elem = document.getElementById("progressBar");   
-  var width = 1;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-    }
-  }
-    }
-</script>
